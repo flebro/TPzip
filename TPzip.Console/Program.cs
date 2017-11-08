@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TPzip.Core;
 
 namespace TPzip.Console
 {
@@ -10,6 +11,11 @@ namespace TPzip.Console
     {
         static void Main(string[] args)
         {
+            AutoZipper autoZipper = new AutoZipper();
+
+            autoZipper.Test();
+
+            System.Console.ReadKey();
         }
     }
 }
