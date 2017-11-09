@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0E953B5E-9F7F-4BCB-99AF-E4574F555390}</ProjectGuid>
+    <ProjectGuid>{58A1D201-BA25-41DA-8812-08A9750A8805}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>TPzip.Service</RootNamespace>
     <AssemblyName>TPzip.Service</AssemblyName>
@@ -43,14 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ZipService.cs">
+    <Compile Include="Service1.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ZipService.Designer.cs">
-      <DependentUpon>ZipService.cs</DependentUpon>
+    <Compile Include="Service1.Designer.cs">
+      <DependentUpon>Service1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

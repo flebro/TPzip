@@ -27,21 +27,36 @@ namespace TPzip.Core
 
         private static Logger buildLogger()
         {
-            // Step 1. Create configuration object 
             LoggingConfiguration config = new LoggingConfiguration();
+            string layout = @"${date:format=dd/MM/yy HH\:mm\:ss} ${logger} ${message}";
 
-            // Step 2. Create targets and add them to the configuration 
+#if DEBUGCONSOLE
             ColoredConsoleTarget consoleTarget = new ColoredConsoleTarget();
             config.AddTarget("console", consoleTarget);
+            
+            consoleTarget.Layout = layout;
+            
+           LoggingRule rule = new LoggingRule("*", LogLevel.Trace, consoleTarget);
+            config.LoggingRules.Add(rule);
+#elif DEBUG
+            FileTarget fileTarget = new FileTarget();
+            fileTarget.FileName = "${basedir}/log.txt";
+            fileTarget.Layout = layout;
 
-            // Step 3. Set target properties 
-            consoleTarget.Layout = @"${date:format=HH\:mm\:ss} ${logger} ${message}";
+            LoggingRule rule = new LoggingRule("*", LogLevel.Trace, fileTarget);
+            config.LoggingRules.Add(rule);
+#else
+            //!\ ATTENTION : il faut être enregistré pour logger dans le journal d'évennement
+            EventLogTarget eventLogTarget = new EventLogTarget();
+            eventLogTarget.Source = "TPzip";
+            eventLogTarget.Log = "Application";
+            eventLogTarget.MachineName = ".";
+            eventLogTarget.Layout = layout;
 
-            // Step 4. Define rules
-            var rule1 = new LoggingRule("*", LogLevel.Debug, consoleTarget);
-            config.LoggingRules.Add(rule1);
+            LoggingRule rule = new LoggingRule("*", LogLevel.Trace, eventLogTarget);
+            config.LoggingRules.Add(rule);
+#endif
 
-            // Step 5. Activate the configuration
             LogManager.Configuration = config;
             
             return LogManager.GetLogger("TPzip");

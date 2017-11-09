@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TPzip.Core;
+using System.IO;
 
 namespace TPzip.Console
 {
@@ -11,10 +12,8 @@ namespace TPzip.Console
     {
         static void Main(string[] args)
         {
-            AutoZipper autoZipper = new AutoZipper();
-
-            autoZipper.Test();
-
+            AutoZip autoZip = new AutoZip();
+            autoZip.Start();
             System.Console.ReadKey();
         }
     }

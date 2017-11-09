@@ -1,0 +1,1 @@
+La configuration se fait dans le fichier .config de l'application.
