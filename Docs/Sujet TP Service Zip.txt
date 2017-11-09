@@ -1,0 +1,29 @@
+Créer une solution de service de zip d'éléments ajoutés dans un dossier
+
+>Il existe un dossier Input dans lequel l'utilisateur pourra ajouter des fichiers ou des dossiers
+>Le service doit créer un zip et mettre les éléments glissés dans le zip.
+>Lorsque l'utilisateur ajoute un premier élément, le service doit attendre une période avant de zipé.
+>Si l'utilisateur ajoute d'autres éléments avant la fin de la période, le service doit de nouveau attendre une période entière.
+>Le service doit faire le zip après la période d'inactivité
+
+
+>Le dossier Input doit pouvoir être paramétré (une méthode de au choix)
+	> Arguments
+	> Fichier de config
+	> Sérialisation / désérialisation d'une classe de configuration
+
+>Ajouter un paramètre qui détermine le nom du fichier zip (un GUID ou la date et heure de zip ou le nom du premier élément glissé)
+>Ajouter un paramètre qui détermine la durée de la période d'attente (après la copie) avant de zip
+>Ajouter un paramètre qui détermine si on ajoute dans tous les cas au même fichier zip ou si chaque lot possède son propre zip
+>Ajouter un paramètre qui détermine le chemin du dossier d'entré
+>Ajouter un paramètre qui détermine le chemin du dossier de sortie (emplacement dans lequel on créé le fichier zip)
+
+>La solution devra contenir
+	>Une DLL pour le code métier
+	>Un projet console pour tester
+	>Un projet service (avec prise en charge d'installation avec Installutil)
+	
+>Le code devra utiliser des log
+	>Log windows en RELEASE
+	>Log fichier texte en DEBUG
+	>Log console en DEBUG.CONSOLE
