@@ -18,14 +18,14 @@ namespace TPzip.Core
             get {
                 if (logger == null)
                 {
-                    logger = buildLogger();
+                    logger = BuildLogger();
                 }
                 return logger;
             }
             private set { logger = value; }
         }
 
-        private static Logger buildLogger()
+        private static Logger BuildLogger()
         {
             LoggingConfiguration config = new LoggingConfiguration();
             string layout = @"${date:format=dd/MM/yy HH\:mm\:ss} ${logger} ${message}";

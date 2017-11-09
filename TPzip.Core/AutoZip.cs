@@ -294,7 +294,6 @@ namespace TPzip.Core
             if (_FileSystemWatcher == null)
             {
                 _FileSystemWatcher = new FileSystemWatcher(InputDirectoryPath);
-                _FileSystemWatcher.IncludeSubdirectories = false;
                 _FileSystemWatcher.Created += _FileSystemWatcher_Created;
             }
             _FileSystemWatcher.EnableRaisingEvents = true;

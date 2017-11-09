@@ -39,34 +39,31 @@ namespace TPzip.Core
         public static string ReadInputPath()
         {
             string inputPath = ReadParam(INPUT_PATH_KEY);
-            return inputPath != null ? inputPath : DEFAULT_INPUT_PATH;
+            return inputPath ?? DEFAULT_INPUT_PATH;
         }
 
         public static string ReadOutputPath()
         {
             string inputPath = ReadParam(OUTPUT_PATH_KEY);
-            return inputPath != null ? inputPath : DEFAULT_OUTPUT_PATH;
+            return inputPath ?? DEFAULT_OUTPUT_PATH;
         }
 
         public static int ReadPeriodeAttente()
         {
-            int result;
             string perStr = ReadParam(PERIODE_ATTENTE_KEY);
-            return int.TryParse(perStr, out result) ? result : DEFAULT_PERIODE_ATTENTE;
+            return int.TryParse(perStr, out int result) ? result : DEFAULT_PERIODE_ATTENTE;
         }
 
         public static ModeNommageEnum ReadModeNommage()
         {
-            ModeNommageEnum result;
             string modeNommageStr = ReadParam(MODE_NOMMAGE_KEY);
-            return Enum.TryParse(modeNommageStr, out result) ? result : DEFAULT_MODE_NOMMAGE;
+            return Enum.TryParse(modeNommageStr, out ModeNommageEnum result) ? result : DEFAULT_MODE_NOMMAGE;
         }
 
         public static bool ReadAppend()
         {
-            bool result;
             string perStr = ReadParam(APPEND_KEY);
-            return bool.TryParse(perStr, out result) ? result : DEFAULT_APPEND;
+            return bool.TryParse(perStr, out bool result) ? result : DEFAULT_APPEND;
         }
 
         private static string ReadParam(string paramKey)

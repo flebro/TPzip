@@ -17,7 +17,7 @@ namespace TPzip.Service
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new Service1()
+                new AutoZipService()
             };
             ServiceBase.Run(ServicesToRun);
         }
